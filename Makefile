@@ -11,7 +11,7 @@ CFLAGS += -Wall -Wextra -Wshadow -Wundef -O3 -g -I$(SRC_DIR) -Ic_src -I$(ERLANG_
 
 KERNEL_NAME := $(shell uname -s)
 
-LIB_NAME = priv/falcon_nif.so
+LIB_NAME = $(MIX_APP_PATH)/priv/falcon_nif.so
 ifneq ($(CROSSCOMPILE),)
 	LIB_CFLAGS := -shared -fPIC -fvisibility=hidden
 	SO_LDFLAGS := -Wl,-soname,libfalcon.so.0
@@ -31,7 +31,7 @@ endif
 all: $(LIB_NAME)
 
 $(LIB_NAME): $(SRC)
-	mkdir -p priv
+	mkdir -p $(MIX_APP_PATH)/priv
 	$(CC) $(CFLAGS) $(LIB_CFLAGS) $(SO_LDFLAGS) $^ -o $@
 
 clean:

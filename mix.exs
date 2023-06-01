@@ -24,10 +24,11 @@ defmodule Falcon.MixProject do
     ]
   end
 
+  # "Makefile1024"
   defp package do
     [
       name: "falcon",
-      files: ["lib", "c_src", "mix.exs", "README*", "libfalcon", "Makefile", "Makefile1024"],
+      files: ["lib", "c_src", "mix.exs", "README*", "libfalcon", "Makefile"],
       maintainers: ["Kambei Sapote"],
       licenses: ["GNU GPLv3"]
     ]
