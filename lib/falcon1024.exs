@@ -1,5 +1,6 @@
 defmodule Falcon1024 do
-  @on_load :load_nifs
+  @compile {:autoload, false}
+  @on_load {:load_nif, 0}
 
   def load_nifs do
     path = :filename.join(:code.priv_dir(:falcon), 'falcon_1024_nif')
